@@ -6,11 +6,12 @@ var read=readline.createInterface(
         output:process.stdout
     }
 );
-function tictactoe()
+function leapYear()
 {
-    read.question("enter to start the game ",function()
+    read.question("enter the 4 digit year: ",function(userinput)
     {
-        utility.tictactoe(read);
+        utility.leapyear(userinput);
+        read.close();
     });
 }
-tictactoe();
+leapYear();

@@ -8,7 +8,7 @@ var read=readline.createInterface(
 );
 function triplets()
 {
-    read.question("eneter the size: ",function(size)
+    read.question("enter the size: ",function(size)
     {
             utility.triplets(read,size);
     });
