@@ -10,7 +10,8 @@ function permutation()
 {
     read.question("enter the string: ",function(input)
     {
-        utility.permutation(input);    
+        var string=input.split("");
+        utility.permutation(string,0,string.length-1);    
         read.close();
     });
 }
