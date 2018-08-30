@@ -2,17 +2,18 @@ const _ =require("lodash")
 module.exports={
 
 /**
- * @description taking input as string and Replace String Template “Hello <<UserName>>, How are you?”
+ * @description taking input as string and Replace String Template 
+ *               “Hello <<UserName>>, How are you?”
  * @function hello Getting input as srtring.(name)
  * @return {String}  printing “Hello <<UserName>>, How are you?”
  */
-    hello : function(userinput)
-    {   if(userinput.length>=3)
+    helloname : function(username)
+    {   if(username.length>=3)
         {
            /**
             * @description the name should be atleast 3 character
             */
-            console.log("hello "+userinput+", how are you?");
+            console.log("hello "+username+", how are you?");
         }
         else
         {
@@ -25,13 +26,14 @@ module.exports={
 
 
 /**
- * @description it will generate random values by flipping the coin. head and tail will count
+ * @description it will generate random values by flipping the coin. head and tail will count 
+ *               and it will show the result
  * @function flipcoin Getting input as integer.(num of times user wants to flip the coin)
  * @return {double} it will return the percentage values of getting head and tail
  */
-    flipcoin : function(userinput)
+    flipcoin : function(input)
     {
-        if(userinput<1)
+        if(input<1)
         {
            /**
             * @description the input must be a positive integer
@@ -44,26 +46,28 @@ module.exports={
            /**
             * @description initially we are taking head_count and tail_count as 0
             */
-            for(var v=0;v<userinput;v++)
+            for(var v=0;v<input;v++)
             {
                 if(Math.random()>0.5)
                 {
                     head++;
                /**
-                * @description if value is greater then 0.5 then it is head and head will be increased by 1
+                * @description if value is greater then 0.5 then it is head and 
+                *              head will be increased by 1
                 */
                 }
                 else
                 {
                     tail++;
                /**
-                * @description if value is less then 0.5 then it is tail and tail will be increased by 1
+                * @description if value is less then 0.5 then it is tail and 
+                *              tail will be increased by 1
                 */
                 }
         
             }
-            console.log("percentageof head = "+(head/userinput)*100+" %");
-            console.log("percentageof tail = "+(tail/userinput)*100+" %");
+            console.log("percentageof head = "+(head/input)*100+" %");
+            console.log("percentageof tail = "+(tail/input)*100+" %");
         }
     },  
 
@@ -73,9 +77,9 @@ module.exports={
  * @function leapyear Getting input as integer.(year)
  * @return {string} it will return the message that the year is leapyear or not
  */
-    leapyear : function(userinput)
+    leapyear : function(year)
     {
-       if(((userinput%4==0)&&(userinput%100!=0))||(userinput%400==0))
+       if(((year%4==0)&&(year%100!=0))||(year%400==0))
        {
            /**
             * @description if any year satisfy this condition then it will be a leapyear
@@ -94,10 +98,10 @@ module.exports={
  * @function power Getting input as integer.(range)
  * @return {integer} it will return the values of powers of 2
  */
-    power : function(userinput)
+    power2 : function(N)
     {
         var value=2;
-        if((userinput>31)||(userinput<1))
+        if((N>31)||(N<1))
         { 
             /**
             * @description Only works only when 0 <= N <= 31 since 2^31 overflows an int
@@ -105,7 +109,7 @@ module.exports={
             return console.log("invalid input\nthe range should not be greater than 31");
             read.close();
         }
-        for(var i=1;i<=userinput;i++)
+        for(var i=1;i<=N;i++)
         {    
             console.log("2^"+i+"="+value);
             value*=2;
@@ -121,22 +125,23 @@ module.exports={
  * @function harmonic Getting input as integer. (range of N) 
  * @return {fraction value} it will return the value of harmonic sum in fraction form
  */
-    harmonic : function(userinput)
+    harmonic : function(N)
     {
        var denominator=1;
-       for(var i=1;i<=userinput;i++)
+       for(var i=1;i<=N;i++)
        {
             denominator*=i;
        }
        var numerator=0;
-       for(var j=1;j<=userinput;j++)
+       for(var j=1;j<=N;j++)
        {
             numerator=numerator+denominator/j;
        }
        /**
-        * @description Since the value will be print in fraction form so we have to calculate the numarator and denominator part separately and print the result
+        * @description Since the value will be print in fraction form so we have to calculate 
+        *              the numarator and denominator part separately and print the result
         */
-       console.log(userinput+"th harmonic value is : "+numerator+"/"+denominator);
+       console.log(N+"th harmonic value is : "+numerator+"/"+denominator);
     },
 
 
@@ -163,14 +168,16 @@ module.exports={
                 number/=i;
             }
            /**
-            * @description loop will run for 3 to sqrt of num because the prime factor will not greater than sqrt of number and print the values how many times it is divisible by number
+            * @description loop will run for 3 to sqrt of number,because the prime factor will not greater 
+            *             than sqrt of number and print the values how many times it is divisible by number.
             */
         }
        if(number>2)
         {
             console.log(number);
            /**
-            * @description finnaly it will print the last number. We are putting condition number>2 because it should not print 1 since 1 is not a prime number
+            * @description finnaly it will print the last number. We are putting condition number>2 ,
+            *              because it should not print 1, since 1 is not a prime number.
             */
         }
     },
@@ -178,7 +185,10 @@ module.exports={
 
 /**
  * @description program to play Gambler and print the Score of game
- * @function gambler Getting 3 input as integer.(stoke:how much money you have,goal:what is the max goal,time:how many times you want to play the game)
+ * @function gambler Getting 3 input as integer.
+ *                   stoke:how much money you have,
+ *                    goal:what is the max goal,
+ *                    time:how many times you want to play the game
  * @return {integer,and percentage of win and loss} it will return the score of game
  */
     gambler : function(stake,goal,time)
@@ -254,14 +264,16 @@ module.exports={
     {
         var random=[]; 
        /**
-        * @description initially a empty array will be taken to store the coupon numbers generated, then using random function we can create numbers
+        * @description initially a empty array will be taken to store the coupon numbers generated, 
+        *              then using random function we can create numbers
         */
         for(var i=min;i<max;i++) 
         {
             var n= _.random(min,max)
             random.push(n); 
            /**
-            * @description it will generate a random value between min-max range and the value will be stored in random[]
+            * @description it will generate a random value between min-max range and 
+            *              the value will be stored in random[]
             */
         }
         console.log(random); 
@@ -270,14 +282,16 @@ module.exports={
         console.log(distinct);  
         console.log("number of distinct coupon ",distinct.size);
        /**
-        * @description it will print the random array and by using Set function it will print the distinct values by rejecting the repeated values
+        * @description it will print the random array and by using Set function.
+        *              it will print the distinct values by rejecting the repeated values.
         */
     },
 
 
 /**
  * @description program to reading values in 2D arrays and printing them out
- * @function array it will take row size and column size as inputs, and to read elements from users we have give read as input also
+ * @function array it will take row size and column size as inputs.To read elements from users,
+ *                 we have give read as input also
  * @return {array} it will return the array in matrix format
  */
     array : function(read,row,col)
@@ -285,7 +299,8 @@ module.exports={
         var size=row*col;
         var arr1=[];  
        /**
-        * @description size is the total number of elements given by the user and to store the elements, we are taking a empty array
+        * @description size is the total number of elements given by the user and to store the elements, 
+        *              we are taking a empty array
         */
         function input(size)
         {   
@@ -307,7 +322,8 @@ module.exports={
                     arr2.push(string); 
                     string = "";
                    /**
-                    * @description cancating element to an empty string and storing the strings in an empty array arr2[]
+                    * @description cancating element to an empty string and storing the strings 
+                    *              in an empty array arr2[]
                     */
                 }
                 for (var pos = 0; pos < arr2.length; pos++)
@@ -323,7 +339,8 @@ module.exports={
                     arr1.push(val); 
                     input(size);  
                    /**
-                    * @description pushing element to array and again calling the function for further pushing(recurssion call)
+                    * @description pushing element to array and again calling the function for further 
+                    *              pushing(recurssion call)
                     */
                 });
             }
@@ -345,7 +362,8 @@ module.exports={
         var arr=[];   
         var count=0; 
        /**
-        * @description we are taking an empty array to store integers input and num of triplets we will count. initially count will be 0
+        * @description an empty array is taken to store integers input and num of triplets 
+        *              will be count. initially count will be 0
         */
         function input(size)
         {
@@ -366,7 +384,8 @@ module.exports={
                                 console.log("triplets ("+arr[i]+","+arr[j]+","+arr[k]+")");
                                 count++;// one more triplet
                                /**
-                                * @description if the sum of three elemrnts of that array will 0 then it will print those values as a set and the count will increased
+                                * @description if the sum of three elemrnts of that array will 0, then it 
+                                *              will print those values as a set and the count will increased
                                 */
                             }
                         }
@@ -421,7 +440,8 @@ module.exports={
         {
             console.log(string.join(''));
            /**
-            * @description it will get the characters after swaping and print as a string when indexs are same
+            * @description it will get the characters after swaping and print as a string when 
+            *              indexs are same
             */
         }
         else
@@ -432,7 +452,8 @@ module.exports={
                 this.permutation(string,startindex+1,endindex);
                 string=this.swap(string,i,startindex);
                /**
-                * @description recurssion call to again swap the numbers. we are using swap function to exchange the character values
+                * @description recurssion call to again swap the numbers. we are using swap function to 
+                *              exchange the character values
                 */
             }
         }
@@ -447,7 +468,7 @@ module.exports={
 
 
 /**
- * @description Stopwatch Program for measuring the time that elapses betweenthe start and end clicks
+ * @description Stopwatch Program for measuring the time that elapses between the start and end clicks
  * @function currentTime it will take input to start and stop
  * @function elapsedTime it will take start and stop time
  * @return {string} it will return the duration from start to stop
@@ -465,18 +486,10 @@ module.exports={
        var time=(stop-start)/1000;
        console.log("elapsed time: "+time+"seconds");
        /**
-        * @description it will give the elapsed time.since it comes in mili sec, we are converting it to seconds
+        * @description it will give the elapsed time.since it comes in mili sec.
+        *              so dividing by 1000, it will come in seconds
         */
    },
-
-//tic-tac-toe game
-    // tictactoe : function(read)
-    // {
-    //     console.log("started");
-    //     var board=[];
-    //     var col,row;
-    //     console.log(board[0][2]);
-    // },
 
 
 /**
@@ -535,7 +548,8 @@ module.exports={
         var w=35.74+0.6215*t+(0.4275*t-35.75)*Math.pow(v,0.16);
         console.log("wind chill :"+w);  
        /**
-        * @description using windchill formula, here we are calculating the windchill value and printing that value
+        * @description using windchill formula, here we are calculating the windchill value and 
+        *              printing that value
         */  
     }
     
