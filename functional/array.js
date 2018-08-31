@@ -23,7 +23,7 @@ var read=readline.createInterface(
 );
 function array()
 {
-    read.question("eneter the row size: ",function(row)
+    read.question("enter the row size: ",function(row)
     {
         read.question("enter the column size: ",function(col)
         {
