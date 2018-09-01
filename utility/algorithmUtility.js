@@ -86,29 +86,32 @@ module.exports={
 
 
 /**
- * @description program for printing the prime numbers between 0 to 1000
+ * @description program for printing the prime numbers between 0 to 1000 which are anagram and palindrome
  * @function primeNum it will take input 0 and 1000
- * @return {integer}  it returns all the prime numbers between the range
+ * @return {integer}  it returns all the prime numbers between the range which are palindrome and
+ *                    all the pair of prime number between 0 to 1000 which are anagram
  */
-    AnagPal : function(min,max)
+    anagPal : function(min,max)
     {
         var palindrome=[];
         var primeArray=[];
         primeArray=this.primeNum(min,max);
-        var revArray=[];
+       /**
+        * @description by using primeNum function, all the prime numbers between the range is given 
+        *              to an array(primeAraay)
+        */
         for(var k=0;k<primeArray.length;k++)
         {   
-            var reversed=this.reverseNum(primeArray[k]);
-            revArray.push(reversed);
-        }
-        for(var i=0;i<primeArray.length;i++)
-        {
-            if(primeArray[i]==revArray[i])
+            if(primeArray[k]==this.reverseNum(primeArray[k]))
             {
                 palindrome.push(primeArray[i]);
             }
+           /**
+            * @description all the numbers of the primeArray is reversed and storing in an different array
+            */
         }
         console.log("prime numbers between 1 and 1000 :"+primeArray);
+
         console.log("prime numbers between 1 and 1000 that are Palindrome :"+palindrome);
         console.log("anagram pairs are:");
         for(var k=0;k<primeArray.length;k++)
@@ -127,6 +130,7 @@ module.exports={
         }
     },
 
+    
     reverseNum : function(number)
     {
         var reversed = 0;var digit;
