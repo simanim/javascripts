@@ -1,12 +1,13 @@
 /******************************************************************************
  *  Execution       :   default node         cmd> node AnagPal.js 
  *                      
- *  Purpose         :   Printing prime numbers between 0 to 1000
+ *  Purpose         :   Printing prime numbers that are Anagram and Palindrome
  * 
  *  @description    
  * 
  *  @file           : AnagPal.js
- *  @overview       : AnagPal module 
+ *  @overview       : AnagPal module prints all the prime numbers which are anagram and palindrome
+ *                    between 0 t0 1000.
  *  @module         : AnagPal - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
