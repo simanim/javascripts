@@ -24,55 +24,69 @@ var start; var stop;
 function staticMethods()
 {
     sizeInt=readlineSync.question("enter the size of integer array: ");
-    for(var i=0;i<sizeInt;i++)
+    if(isNaN(sizeInt))
     {
-        var int= readlineSync.question("enter the "+i+"th value : ");
-        arrayInt.push(Number(int));
+        console.log("you have not enter the valid input");
     }
-    console.log("Integer elements are: "+arrayInt);
+    else
+    {
+        for(var i=0;i<sizeInt;i++)
+        {
+            var int= readlineSync.question("enter the "+i+"th value : ");
+            arrayInt.push(Number(int));
+        }
+        console.log("Integer elements are: "+arrayInt);
 
-    start=utility.currentTime();
-    var insertionInt=utility.insertionSort(arrayInt,sizeInt);
-    stop=utility.currentTime();
-    console.log("\nsorted array(insertion sort) : "+insertionInt);
-    console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        start=utility.currentTime();
+        var insertionInt=utility.insertionSort(arrayInt,sizeInt);
+        stop=utility.currentTime();
+        console.log("\nsorted array(insertion sort) : "+insertionInt);
+        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
-    start=utility.currentTime();
-    var bubbleInt=utility.bubbleSort(arrayInt,sizeInt);
-    stop=utility.currentTime();
-    console.log("\nsorted array(bubble sort) : "+bubbleInt);
-    console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        start=utility.currentTime();
+        var bubbleInt=utility.bubbleSort(arrayInt,sizeInt);
+        stop=utility.currentTime();
+        console.log("\nsorted array(bubble sort) : "+bubbleInt);
+        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
-    start=utility.currentTime();
-    var posInt=readlineSync.question("\nenter the value you want to search: ");
-    utility.binarySearch(arrayInt,posInt);
-    stop=utility.currentTime();
-    console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        start=utility.currentTime();
+        var posInt=readlineSync.question("\nenter the value you want to search: ");
+        utility.binarySearch(arrayInt,posInt);
+        stop=utility.currentTime();
+        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+    }
 
     sizeStr=readlineSync.question("\nenter the size of string array: ");
-    for(var j=0;j<sizeStr;j++)
+    if(isNaN(sizeStr))
     {
-        var str= readlineSync.question("enter the "+j+"th value : ");
-        arrayStr.push(str);
+        console.log("you have not enter the valid input");
     }
-    console.log("String elements are: "+arrayStr+"\n");
+    else
+    {
+        for(var j=0;j<sizeStr;j++)
+        {
+            var str= readlineSync.question("enter the "+j+"th value : ");
+            arrayStr.push(str);
+        }
+        console.log("String elements are: "+arrayStr+"\n");
 
-    start=utility.currentTime();
-    var insertionStr=utility.insertionSort(arrayStr,sizeStr);
-    stop=utility.currentTime();
-    console.log("\nsorted array(insertion sort) : "+insertionStr);
-    console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        start=utility.currentTime();
+        var insertionStr=utility.insertionSort(arrayStr,sizeStr);
+        stop=utility.currentTime();
+        console.log("\nsorted array(insertion sort) : "+insertionStr);
+        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
-    start=utility.currentTime();
-    var bubbleStr=utility.bubbleSort(arrayStr,sizeInt);
-    stop=utility.currentTime();
-    console.log("\nsorted array(bubble sort) : "+bubbleStr);
-    console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        start=utility.currentTime();
+        var bubbleStr=utility.bubbleSort(arrayStr,sizeInt);
+        stop=utility.currentTime();
+        console.log("\nsorted array(bubble sort) : "+bubbleStr);
+        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
-    start=utility.currentTime();
-    var posStr=readlineSync.question("\nenter the string you want to search: ");
-    utility.binarySearch(arrayStr,posStr);
-    stop=utility.currentTime();
-    console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        start=utility.currentTime();
+        var posStr=readlineSync.question("\nenter the string you want to search: ");
+        utility.binarySearch(arrayStr,posStr);
+        stop=utility.currentTime();
+        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+    }
 }
 staticMethods();

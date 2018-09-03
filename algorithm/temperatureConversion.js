@@ -19,8 +19,14 @@ var utility=require('../utility/algorithmUtility.js');
 function temperatureConversion()
 {
     var celsius=readlineSync.question("enter the temperature in Celsius: ");
-    utility.temperatureConversion(celsius,1);
+    if(isNaN(celsius))
+        console.log("please enter a valid input");
+    else
+        utility.temperatureConversion(celsius,1);
     var fahrenheit=readlineSync.question("enter the temperature in Fahrenheit: ");
-    utility.temperatureConversion(fahrenheit,0);
+    if(isNaN(fahrenheit))
+        console.log("please enter a valid input");
+    else
+        utility.temperatureConversion(fahrenheit,0);
 }
 temperatureConversion();

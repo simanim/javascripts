@@ -27,16 +27,18 @@ function anagram()
     {
         read.question("enter the second string: ",function(string2)
         {
-            var result=utility.anagram(string1,string2); 
-
+            var result=utility.anagram(string1,string2);
+            if(string1.length==string2.length)
+            {
             if(result[0]==result[1])
-            {
-                console.log("Two Strings are ANAGRAM");
+                {
+                    console.log("Two Strings are ANAGRAM");
+                }
+                else
+                {
+                    console.log("Two Strings are NOT ANAGRAM");
+                }
             }
-            else
-            {
-                console.log("Two Strings are NOT ANAGRAM");
-            } 
             read.close();
         });
     })

@@ -21,13 +21,20 @@ var size;
 function bubbleSort()
 {
     size=readlineSync.question("\nenter the size of string array: ");
-    for(var j=0;j<size;j++)
+    if(isNaN(size))
     {
-        var word= readlineSync.question("enter the "+j+"th value : ");
-        array.push(word);
+        console.log("you have not enter the valid input");
     }
-    console.log("String elements are: "+array+"\n");
-    var bubbleSort=utility.bubbleSort(array,size);
-    console.log("\nsorted array : "+bubbleSort);
+    else
+    {
+        for(var j=0;j<size;j++)
+        {
+            var word= readlineSync.question("enter the "+j+"th value : ");
+            array.push(word);
+        }
+        console.log("String elements are: "+array+"\n");
+        var bubbleSort=utility.bubbleSort(array,size);
+        console.log("\nsorted array : "+bubbleSort);
+    }
 }
 bubbleSort();

@@ -30,7 +30,10 @@ function monthlyPayment()
         {
             read.question("enter the percent of interest per year: ",function(R)
             {
-                utility.monthlyPayment(P,Y,R);
+                if(isNaN(P)||isNaN(Y)||isNaN(R))
+                    console.log("Enter valid inputs");
+                else
+                    utility.monthlyPayment(P,Y,R);
                 read.close();
             });
         });

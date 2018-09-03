@@ -22,15 +22,22 @@ var size;
 function binSearchWord()
 {
     size=readlineSync.question("\nenter the size of string array: ");
-    for(var j=0;j<size;j++)
+    if(isNaN(size))
     {
-        var word= readlineSync.question("enter the "+j+"th value : ");
-        array.push(word);
+        console.log("you have not enter the valid input");
     }
-    console.log("String elements are: "+array+"\n");
-    array.sort();
-    console.log("Sorted elements are: "+array+"\n");
-    var position=readlineSync.question("\nenter the string you want to search: ");
-    utility.binarySearch(array,position);
+    else
+    {
+        for(var j=0;j<size;j++)
+        {
+            var word= readlineSync.question("enter the "+j+"th value : ");
+            array.push(word);
+        }
+        console.log("String elements are: "+array+"\n");
+        array.sort();
+        console.log("Sorted elements are: "+array+"\n");
+        var position=readlineSync.question("\nenter the string you want to search: ");
+        utility.binarySearch(array,position);
+    }
 }
 binSearchWord();
