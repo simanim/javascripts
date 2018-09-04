@@ -30,6 +30,9 @@ function staticMethods()
     }
     else
     {
+       /**
+        * @description Inserting Integer Elements to Array
+        */
         for(var i=0;i<sizeInt;i++)
         {
             var int= readlineSync.question("enter the "+i+"th value : ");
@@ -37,18 +40,27 @@ function staticMethods()
         }
         console.log("Integer elements are: "+arrayInt);
 
+       /**
+        * @description Insertion Sort of Integers
+        */
         start=utility.currentTime();
         var insertionInt=utility.insertionSort(arrayInt,sizeInt);
         stop=utility.currentTime();
         console.log("\nsorted array(insertion sort) : "+insertionInt);
         console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
+       /**
+        * @description Bubble Sort of Integers
+        */
         start=utility.currentTime();
         var bubbleInt=utility.bubbleSort(arrayInt,sizeInt);
         stop=utility.currentTime();
         console.log("\nsorted array(bubble sort) : "+bubbleInt);
         console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
+       /**
+        * @description Binary Search of Integers
+        */
         start=utility.currentTime();
         var posInt=readlineSync.question("\nenter the value you want to search: ");
         utility.binarySearch(arrayInt,posInt);
@@ -63,6 +75,9 @@ function staticMethods()
     }
     else
     {
+       /**
+        * @description Inserting String Elements to Array
+        */
         for(var j=0;j<sizeStr;j++)
         {
             var str= readlineSync.question("enter the "+j+"th value : ");
@@ -70,18 +85,27 @@ function staticMethods()
         }
         console.log("String elements are: "+arrayStr+"\n");
 
+       /**
+        * @description Insertion Sort of Strings
+        */
         start=utility.currentTime();
         var insertionStr=utility.insertionSort(arrayStr,sizeStr);
         stop=utility.currentTime();
         console.log("\nsorted array(insertion sort) : "+insertionStr);
         console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
+       /**
+        * @description Bubble Sort of Strings
+        */
         start=utility.currentTime();
         var bubbleStr=utility.bubbleSort(arrayStr,sizeInt);
         stop=utility.currentTime();
         console.log("\nsorted array(bubble sort) : "+bubbleStr);
         console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
+       /**
+        * @description Binary Search of Strings
+        */
         start=utility.currentTime();
         var posStr=readlineSync.question("\nenter the string you want to search: ");
         utility.binarySearch(arrayStr,posStr);
