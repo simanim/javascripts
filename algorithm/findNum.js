@@ -1,12 +1,13 @@
 /******************************************************************************
  *  Execution       :   default node         cmd> node anagPal.js 
  *                      
- *  Purpose         :   Printing prime numbers that are Anagram and Palindrome
+ *  Purpose         :   program for finding the number 
  * 
  *  @description    
  * 
- *  @file           : findNum.js
- *  @overview       : findNum module 
+ *  @file           : findNum.js 
+ *  @overview       : findNum module takes a command­line argument N, asks the users to think of a number
+ *                    between 0 and N­-1, where N = 2^n, and always guesses the answer with n questions.
  *  @module         : findNum - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6

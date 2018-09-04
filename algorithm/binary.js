@@ -1,13 +1,14 @@
 /******************************************************************************
  *  Execution       :   default node         cmd> node binary.js 
  *                      
- *  Purpose         :   program to takes a command­line argument and guess the answer with questions.
+ *  Purpose         :   program to covert decimal to binary and performing some functions
  * 
  *  @description    
  * 
  *  @file           : binary.js
- *  @overview       : binary module takes N commandline arguement and guess the answer with n question
- *                    where N=2^n
+ *  @overview       : program for converting a decimal to binary and 
+ *                      1.Swapping nibbles and finding the new number
+ *                      2.Finding the resultant number is the number is a power of 2
  *  @module         : binary - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6

@@ -5,7 +5,7 @@
  * 
  *  @description    
  * 
- *  @file           : dayOfWeek.js
+ *  @file           : dayOfWeek.js prints day of week by taking date input
  *  @overview       : dayOfWeek module takes year, month, date as input and prints the day of week
  *  @module         : dayOfWeek - 
  *  @author         : Simani Meher <simanimeher@gmail.com>

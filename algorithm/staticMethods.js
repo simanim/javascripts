@@ -13,104 +13,71 @@
  *  @module         : staticMethods - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
- *  @since          : 01-09-2018
+ *  @since          : 04-09-2018
  *
  **********************************************************/
 var readlineSync=require('readline-sync');
 var utility=require('../utility/algorithmUtility.js');
-var arrayInt=[];var sizeInt;
-var arrayStr=[];var sizeStr;
-var start; var stop;
 function staticMethods()
 {
-    sizeInt=readlineSync.question("enter the size of integer array: ");
-    if(isNaN(sizeInt))
+    var start,stop;
+
+    var binArr=[];
+    var array1=["2","5","6","8","11","12","13","15","16","19","20","22","25","26","28","30"];
+    var valueInt=parseInt(readlineSync.question("enter the integer value you want to search(1-30)->"));
+    for(var i=0;i<array1.length;i++)
     {
-        console.log("you have not enter the valid input");
+        binArr[i]=parseInt(array1[i]);
     }
-    else
+    start=utility.currentTime();
+    utility.binarySearch(binArr,valueInt);
+    stop=utility.currentTime();
+    console.log("elapsed time = "+(stop-start)+" milisec\n");
+
+    var insertionArr=[];
+    var IntInsertion=readlineSync.question("enter the integer elements(Insertion sort)-->");
+    start=utility.currentTime();
+    var arr1=IntInsertion.split(' ');
+    for(var i=0;i<arr1.length;i++)
     {
-       /**
-        * @description Inserting Integer Elements to Array
-        */
-        for(var i=0;i<sizeInt;i++)
-        {
-            var int= readlineSync.question("enter the "+i+"th value : ");
-            arrayInt.push(Number(int));
-        }
-        console.log("Integer elements are: "+arrayInt);
-
-       /**
-        * @description Insertion Sort of Integers
-        */
-        start=utility.currentTime();
-        var insertionInt=utility.insertionSort(arrayInt,sizeInt);
-        stop=utility.currentTime();
-        console.log("\nsorted array(insertion sort) : "+insertionInt);
-        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
-
-       /**
-        * @description Bubble Sort of Integers
-        */
-        start=utility.currentTime();
-        var bubbleInt=utility.bubbleSort(arrayInt,sizeInt);
-        stop=utility.currentTime();
-        console.log("\nsorted array(bubble sort) : "+bubbleInt);
-        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
-
-       /**
-        * @description Binary Search of Integers
-        */
-        start=utility.currentTime();
-        var posInt=readlineSync.question("\nenter the value you want to search: ");
-        utility.binarySearch(arrayInt,posInt);
-        stop=utility.currentTime();
-        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+        insertionArr[i]=parseInt(arr1[i]);
     }
+    console.log("\nsorted array(insertion sort) : "+utility.insertionSort(insertionArr,arr1.length));
+    stop=utility.currentTime();
+    console.log("elapsed time = "+(stop-start)+" milisec\n");
 
-    sizeStr=readlineSync.question("\nenter the size of string array: ");
-    if(isNaN(sizeStr))
+    var bubbleArr=[];
+    var IntBubble=readlineSync.question("enter the integer elements(Bubble sort)-->");
+    start=utility.currentTime();
+    var arr2=IntBubble.split(' ');
+    for(var i=0;i<arr2.length;i++)
     {
-        console.log("you have not enter the valid input");
+        bubbleArr[i]=parseInt(arr2[i]);
     }
-    else
-    {
-       /**
-        * @description Inserting String Elements to Array
-        */
-        for(var j=0;j<sizeStr;j++)
-        {
-            var str= readlineSync.question("enter the "+j+"th value : ");
-            arrayStr.push(str);
-        }
-        console.log("String elements are: "+arrayStr+"\n");
+    console.log("\nsorted array(bubble sort) : "+utility.bubbleSort(bubbleArr,arr2.length));
+    stop=utility.currentTime();
+    console.log("elapsed time = "+(stop-start)+" milisec\n");
 
-       /**
-        * @description Insertion Sort of Strings
-        */
-        start=utility.currentTime();
-        var insertionStr=utility.insertionSort(arrayStr,sizeStr);
-        stop=utility.currentTime();
-        console.log("\nsorted array(insertion sort) : "+insertionStr);
-        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
 
-       /**
-        * @description Bubble Sort of Strings
-        */
-        start=utility.currentTime();
-        var bubbleStr=utility.bubbleSort(arrayStr,sizeInt);
-        stop=utility.currentTime();
-        console.log("\nsorted array(bubble sort) : "+bubbleStr);
-        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
+    var array2=["a","b","c","d","f","h","i","j","m","o","r","s","t","v","y","z"];
+    var valueStr=readlineSync.question("enter the string value you want to search(a-z)->");
+    start=utility.currentTime();
+    utility.binarySearch(array2,valueStr);
+    stop=utility.currentTime();
+    console.log("elapsed time = "+(stop-start)+" milisec\n");
 
-       /**
-        * @description Binary Search of Strings
-        */
-        start=utility.currentTime();
-        var posStr=readlineSync.question("\nenter the string you want to search: ");
-        utility.binarySearch(arrayStr,posStr);
-        stop=utility.currentTime();
-        console.log("elapsed time = "+utility.elapsedTime(start,stop)+" sec");
-    }
+    var StrInsertion=readlineSync.question("enter the string elements(Insertion sort)-->");
+    start=utility.currentTime();
+    var arr3=StrInsertion.split(' ');
+    console.log("\nsorted array(insertion sort) : "+utility.insertionSort(arr3,arr3.length));
+    stop=utility.currentTime();
+    console.log("elapsed time = "+(stop-start)+" milisec\n");
+
+    var StrBubble=readlineSync.question("enter the integer elements(Bubble sort)-->");
+    start=utility.currentTime();
+    var arr4=StrBubble.split(' ');
+    console.log("\nsorted array(bubble sort) : "+utility.bubbleSort(arr4,arr4.length));
+    stop=utility.currentTime();
+    console.log("elapsed time = "+(stop-start)+" milisec\n");
 }
 staticMethods();

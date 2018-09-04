@@ -2,13 +2,13 @@
  *  Execution       :   default node         cmd> node vendingMachine.js 
  *                      
  *  Purpose         :   calculating the minimum number of notes as well as the notes to be returned 
- *                       by the Vending Machine as a Change
+ *                      by the Vending Machine as a Change
  * 
  *  @description    
  * 
  *  @file           : vendingMachine.js
- *  @overview       : vendingMachine module takes amount of money as input and returns the minimum number of 
- *                    notes as well as the notes returned by vending machine 
+ *  @overview       : vendingMachine module takes amount of money as input and returns the minimum number 
+ *                    of notes as well as the notes returned by vending machine 
  *  @module         : vendingMachine - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
