@@ -22,6 +22,9 @@ function staticMethods()
 {
     var start,stop;
 
+   /**
+    * @description Binary Search of Integer Elements
+    */
     var binArr=[];
     var array1=["2","5","6","8","11","12","13","15","16","19","20","22","25","26","28","30"];
     var valueInt=parseInt(readlineSync.question("enter the integer value you want to search(1-30)->"));
@@ -34,6 +37,9 @@ function staticMethods()
     stop=utility.currentTime();
     console.log("elapsed time = "+(stop-start)+" milisec\n");
 
+   /**
+    * @description Insertion Sort of Integer Elements
+    */
     var insertionArr=[];
     var IntInsertion=readlineSync.question("enter the integer elements(Insertion sort)-->");
     start=utility.currentTime();
@@ -46,6 +52,9 @@ function staticMethods()
     stop=utility.currentTime();
     console.log("elapsed time = "+(stop-start)+" milisec\n");
 
+   /**
+    * @description Bubble Sort of Integer Elements
+    */
     var bubbleArr=[];
     var IntBubble=readlineSync.question("enter the integer elements(Bubble sort)-->");
     start=utility.currentTime();
@@ -58,7 +67,9 @@ function staticMethods()
     stop=utility.currentTime();
     console.log("elapsed time = "+(stop-start)+" milisec\n");
 
-
+   /**
+    * @description Binary Search of String Elements
+    */
     var array2=["a","b","c","d","f","h","i","j","m","o","r","s","t","v","y","z"];
     var valueStr=readlineSync.question("enter the string value you want to search(a-z)->");
     start=utility.currentTime();
@@ -66,6 +77,9 @@ function staticMethods()
     stop=utility.currentTime();
     console.log("elapsed time = "+(stop-start)+" milisec\n");
 
+   /**
+    * @description Insertion Sort of String Elements
+    */
     var StrInsertion=readlineSync.question("enter the string elements(Insertion sort)-->");
     start=utility.currentTime();
     var arr3=StrInsertion.split(' ');
@@ -73,6 +87,9 @@ function staticMethods()
     stop=utility.currentTime();
     console.log("elapsed time = "+(stop-start)+" milisec\n");
 
+   /**
+    * @description Bubble Sort of String Elements
+    */
     var StrBubble=readlineSync.question("enter the integer elements(Bubble sort)-->");
     start=utility.currentTime();
     var arr4=StrBubble.split(' ');

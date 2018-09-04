@@ -15,29 +15,35 @@
  *  @since          : 01-09-2018
  *
  **********************************************************/
-var readlineSync=require('readline-sync');
+// var readlineSync=require('readline-sync');
+// var utility=require('../utility/algorithmUtility.js');
+// var array=[];
+// var size;
+var readline=require('readline');
 var utility=require('../utility/algorithmUtility.js');
-var array=[];
-var size;
+var read=readline.createInterface(
+    {
+        input:process.stdin,
+        output:process.stdout
+    }
+);
 function binSearchWord()
 {
-    size=readlineSync.question("\nenter the size of string array: ");
-    if(isNaN(size))
+    var fs = require("fs");
+    try 
     {
-        console.log("you have not enter the valid input");
+        var data = fs.readFileSync("binSearch.txt", "utf8");
     }
-    else
+    catch(e)
     {
-        for(var j=0;j<size;j++)
-        {
-            var word= readlineSync.question("enter the "+j+"th value : ");
-            array.push(word);
-        }
-        console.log("String elements are: "+array+"\n");
-        array.sort();
-        console.log("Sorted elements are: "+array+"\n");
-        var position=readlineSync.question("\nenter the string you want to search: ");
-        utility.binarySearch(array,position);
+        console.log("Error:", e.stack);
     }
+    var arr = data.split(" ");
+    var array=arr.sort();
+    read.question("\nenter the string you want to search: ",function(word)
+    {
+        utility.binarySearch(array,word);
+        read.close();
+    });
 }
 binSearchWord();

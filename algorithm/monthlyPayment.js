@@ -14,29 +14,18 @@
  *  @since          : 01-09-2018
  *
  ******************************************************************************/
-var readline=require('readline');
+var readlineSync=require('readline-sync');
 var utility=require('../utility/algorithmUtility.js');
-var read=readline.createInterface(
-    {
-        input:process.stdin,
-        output:process.stdout
-    }
-);
 function monthlyPayment()
 {
-    read.question("enter the principal amount: ",function(P)
-    {
-        read.question("enter the time in year: ",function(Y)
-        {
-            read.question("enter the percent of interest per year: ",function(R)
-            {
-                if(isNaN(P)||isNaN(Y)||isNaN(R))
-                    console.log("Enter valid inputs");
-                else
-                    utility.monthlyPayment(P,Y,R);
-                read.close();
-            });
-        });
-    });
+    var input=readlineSync.question("enter principal amount,time in year and interest percent in year-->");
+    var inputArr=input.split(' ');
+   /**
+    * @description values are taken in command line and storing in an array by splitting the string
+    */
+    if(isNaN(inputArr[0])||isNaN(inputArr[1])||isNaN(inputArr[2]))
+        console.log("Enter valid inputs");
+    else
+        utility.monthlyPayment(inputArr[0],inputArr[1],inputArr[2]);
 }
 monthlyPayment();
