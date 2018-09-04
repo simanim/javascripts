@@ -276,21 +276,6 @@ module.exports={
 
 
 /**
- * @description program to get elapsed time
- * @function elapsedTime it will show time
- * @return {time}  it will return elapsed time between two time
- */
-   elapsedTime : function(start,stop)
-   {
-       var time=(stop-start)/1000;
-       /**
-        * @description to get time in second,it is divided by 1000
-        */
-       return time;
-   },
-
-
-/**
  * @description program to convert temperature from celsius to fahrenheit and vice versa
  * @function temperatureConversion it will take temperature 
  * @return {temperature}  it will return converted temperature
