@@ -94,4 +94,20 @@ linkedList.prototype.print=function(){
     console.log(output);
 };
 
-module.exports=new linkedList()
+linkedList.prototype.index=function(value){
+    if(!this.contains(value)){
+        return;
+    }
+    var index=0;
+    var current=this.head;
+
+    while(current!=null){
+        if(current.data==value){
+            return index;
+        }
+        current=current.next;
+        index++;
+    }
+};
+
+module.exports=new linkedList();

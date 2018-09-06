@@ -6,7 +6,7 @@ module.exports={
  * @return {string}  it returns whether the strings are anagram or not
  */
     anagram : function(string1,string2)
-    {
+    { 
         if(string1.length!=string2.length)
         {
             return(console.log("Two Strings are NOT ANAGRAM"));
@@ -156,9 +156,8 @@ module.exports={
 /**
  * @description binary search program
  * @function binarySearch it will take integer or string array(sorted) and value to be searched and do the 
- *                        binary search and return the position or result
- * @return {integer or string} it will return the position of the value in the given array, if it is
- *                             present, otherwise it will give errors
+ *                        binary search and return the word is present or not
+ * @return {integer or string} it will return if it is present, otherwise it will give errors
  */ 
     binarySearch : function(array,value)
     {
@@ -192,7 +191,7 @@ module.exports={
         }
         else
         {
-            console.log("the given value is at "+mid+" position");
+            console.log("element found in the index "+mid);
         }
     },
 
@@ -213,8 +212,8 @@ module.exports={
 
 /**
  * @description Insertion sort Program
- * @function insertionSort it will sort the array using insertion sort method
- * @return {integer or string}  sorted array
+ * @function insertionSort it will sort the string array using insertion sort method
+ * @return {string}  sorted array
  */
     insertionSort : function(array,size)
     {
@@ -222,7 +221,7 @@ module.exports={
         {
             var key = array[i];
             var j=i-1;
-            while(j>=0 && array[j]>key)
+            while(j>=0 && array[j].toUpperCase()>key.toUpperCase())
             {
            /**
             * @description in this loop, array[j] will compared to all left sided element of array, and shifted
@@ -237,12 +236,63 @@ module.exports={
 
 
 /**
+ * @description Insertion sort Program
+ * @function insertionSort it will sort the integer array using insertion sort method
+ * @return {integer}  sorted array
+ */
+insertionSortInt : function(array,size)
+{
+    for(var i=1;i<size;i++)
+    {
+        var key = array[i];
+        var j=i-1;
+        while(j>=0 && array[j]>key)
+        {
+       /**
+        * @description in this loop, array[j] will compared to all left sided element of array, and shifted
+        */
+            array[j+1]=array[j];
+            j=j-1;
+        }
+        array[j+1]=key;
+    }
+    return array;
+},
+
+
+/**
  * @description bubble sort Program
- * @function bubbleSort it will sort the array using bubble sort method
- * @return {integer or string}  sorted array
+ * @function bubbleSort it will sort the string array using bubble sort method
+ * @return {string}  sorted array
  */
     bubbleSort : function(array,size)
     {
+        
+        for (var i=0;i<size;i++)
+        {
+            for (var j=0;j<size-1;j++)
+            {
+           /**
+            * @description the elements checks with its next element,if the greater than next then it swaps 
+            */
+                if (array[j].toUpperCase() > array[j+1].toUpperCase())
+                {
+                    this.swap(array,j,j+1);
+                }
+            }
+        }
+        return(array);
+    },
+
+
+/**
+ * @description bubble sort Program
+ * @function bubbleSort it will sort the integer array using bubble sort method
+ * @return {integer array}  sorted array
+ */
+    bubbleSortInt : function(array,size)
+    {
+    
         for (var i=0;i<size;i++)
         {
             for (var j=0;j<size-1;j++)
@@ -386,7 +436,7 @@ module.exports={
             *              left[] will directly pushed.
             */
             }
-            else if (left[leftIndex]<right[rightIndex]) 
+            else if (left[leftIndex].toUpperCase()<right[rightIndex].toUpperCase()) 
             {
                 sorted.push(left[leftIndex]);
                 leftIndex++;
@@ -599,6 +649,7 @@ module.exports={
             * @description pushing the binary value to array
             */
         }
+        console.log("8 digit binary value is: "+array.join(""));
         for(var i=0;i<4;i++)
         {
             array=this.swap(array,i,i+4);
@@ -606,6 +657,7 @@ module.exports={
             * @description swapping the first 4 digit to last 4 digit
             */
         }
+        console.log("after swapping the 8 digit value : "+array.join(""));
         for(var k=0;k<8;k++)
         {
            /**
