@@ -1,24 +1,20 @@
 /******************************************************************************
  *  Execution       :   default node         cmd> node binSearchWord.js 
  *                      
- *  Purpose         :   reading a list of words from users and doing binary search of a particular
+ *  Purpose         :   reading a list of words from file and doing binary search of a particular
  *                      word given by user.
  * 
  *  @description    
  * 
  *  @file           : binSearchWord.js
- *  @overview       : binSearchWord module takes a list of words from users and search for a particular
- *                    word given by user and returns the position of that word.
+ *  @overview       : binSearchWord module takes a list of words from a file and search for a particular
+ *                    word given by user and returns if the word is present or not
  *  @module         : binSearchWord - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
  *  @since          : 01-09-2018
  *
  **********************************************************/
-// var readlineSync=require('readline-sync');
-// var utility=require('../utility/algorithmUtility.js');
-// var array=[];
-// var size;
 var readline=require('readline');
 var utility=require('../utility/algorithmUtility.js');
 var read=readline.createInterface(
@@ -42,7 +38,10 @@ function binSearchWord()
     var array=arr.sort();
     read.question("\nenter the string you want to search: ",function(word)
     {
-        utility.binarySearch(array,word);
+        if(word=="")
+            console.log("please enter valid input");
+        else
+            utility.binarySearch(array,word.toLowerCase());
         read.close();
     });
 }

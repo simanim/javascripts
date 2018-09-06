@@ -27,11 +27,13 @@ function binary()
 {
     read.question("enter the decimal value : ",function(decimal)
     {
-        if(isNaN(decimal))
+        if(isNaN(decimal)||(decimal==""))
             console.log("invalid input");
         else
         {
-            utility.binary(utility.toBinary(decimal));
+            var bin=utility.toBinary(decimal);
+            console.log("binary value of "+decimal+" is: "+bin.join(""));
+            utility.binary(bin);
         }
         read.close();
     });

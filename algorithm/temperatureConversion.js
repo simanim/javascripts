@@ -19,12 +19,12 @@ var utility=require('../utility/algorithmUtility.js');
 function temperatureConversion()
 {
     var celsius=readlineSync.question("enter the temperature in Celsius: ");
-    if(isNaN(celsius))
+    if(isNaN(celsius)||celsius=="")
         console.log("please enter a valid input");
     else
         utility.temperatureConversion(celsius,1);
     var fahrenheit=readlineSync.question("enter the temperature in Fahrenheit: ");
-    if(isNaN(fahrenheit))
+    if(isNaN(fahrenheit)||fahrenheit=="")
         console.log("please enter a valid input");
     else
         utility.temperatureConversion(fahrenheit,0);

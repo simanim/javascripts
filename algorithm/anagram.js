@@ -23,20 +23,27 @@ var read=readline.createInterface(
 );
 function anagram()
 {
-    read.question("enter the first string: ",function(string1)
+    read.question("enter the first string: ",function(str1)
     {
-        read.question("enter the second string: ",function(string2)
+        read.question("enter the second string: ",function(str2)
         {
-            var result=utility.anagram(string1,string2);
-            if(string1.length==string2.length)
+            if(str1=="" || str2=="")
+                console.log("invalid");
+            else
             {
-            if(result[0]==result[1])
+                var string1=str1.trim();
+                var string2=str2.trim();
+                var result=utility.anagram(string1,string2);
+                if(string1.length==string2.length)
                 {
-                    console.log("Two Strings are ANAGRAM");
-                }
-                else
-                {
-                    console.log("Two Strings are NOT ANAGRAM");
+                    if(result[0]==result[1])
+                    {
+                        console.log("Two Strings are ANAGRAM");
+                    }
+                    else
+                    {
+                        console.log("Two Strings are NOT ANAGRAM");
+                    }
                 }
             }
             read.close();

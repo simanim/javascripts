@@ -23,7 +23,8 @@ function monthlyPayment()
    /**
     * @description values are taken in command line and storing in an array by splitting the string
     */
-    if(isNaN(inputArr[0])||isNaN(inputArr[1])||isNaN(inputArr[2]))
+    if(isNaN(inputArr[0])||isNaN(inputArr[1])||isNaN(inputArr[2])||
+    inputArr[0]==""||inputArr[0]==""||inputArr[0]=="")
         console.log("Enter valid inputs");
     else
         utility.monthlyPayment(inputArr[0],inputArr[1],inputArr[2]);

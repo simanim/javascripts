@@ -21,7 +21,7 @@ var size;
 function bubbleSort()
 {
     size=readlineSync.question("\nenter the size of string array: ");
-    if(isNaN(size))
+    if(isNaN(size)||size==""||size<1)
     {
         console.log("you have not enter the valid input");
     }

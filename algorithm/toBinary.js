@@ -25,7 +25,7 @@ function toBinary()
 {
     read.question("enter the decimal value : ",function(decimal)
     {
-        if(isNaN(decimal))
+        if(isNaN(decimal)||decimal=="")
             console.log("invalid input");
         else
         {

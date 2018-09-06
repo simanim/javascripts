@@ -16,6 +16,11 @@
  ******************************************************************************/
 var utility=require('../utility/algorithmUtility.js');
 var range=process.argv[2];
-console.log("\n think a number between 0 and "+range);
-console.log("\nfollow the instruction\n");
-utility.findNum(range);
+if(isNaN(range)||range==""||range<1)
+    console.log("invalid input");
+else
+{
+    console.log("\n think a number between 0 and "+range);
+    console.log("\nfollow the instruction\n");
+    utility.findNum(range);
+}

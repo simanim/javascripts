@@ -27,7 +27,7 @@ function vendingMachine()
 {
     read.question("enter the amount: ",function(amount)
     {
-        if(isNaN(amount))
+        if(isNaN(amount)||amount<0||amount=="")
             console.log("invalid input");
         else
             utility.vendingMachine(amount);
