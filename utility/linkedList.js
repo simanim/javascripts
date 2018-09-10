@@ -6,7 +6,7 @@ linkedList.prototype.isEmpty=function(){
     return (this.head==null);
 };
 
-linkedList.prototype.size=function(){
+linkedList.prototype.getSize=function(){
     var current=this.head;
     var count=0;
 
@@ -79,22 +79,20 @@ linkedList.prototype.remove=function(value){
 };
 
 linkedList.prototype.print=function(){
-    var output="[";
+    var output="";
     var current=this.head;
 
     while(current!=null){
         output+=current.data;
         if(current.next!=null){
-            output+=", ";
+            output+=" ";
         }
         current=current.next;
     }
-
-    output+="]";
-    console.log(output);
+    return (output);
 };
 
-linkedList.prototype.index=function(value){
+linkedList.prototype.getIndex=function(value){
     if(!this.contains(value)){
         return;
     }

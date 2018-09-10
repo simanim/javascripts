@@ -53,9 +53,11 @@ module.exports={
  * @return {integer}  it returns all the prime numbers between the range
  */
     primeNum : function(min,max)
-    {
+    { 
+        if(min<2)
+            min=2;
         var primeArray=[];
-        for(var i=min+1;i<=max;i++)
+        for(var i=min;i<=max;i++)
         {
        /**
         * @description it will start checking the numbers one by one by increasing the value
@@ -541,32 +543,41 @@ insertionSortInt : function(array,size)
  * @function dayOfWeek it takes year,month,date as inputs
  * @return {day}  it will return the day of week
  */
-    dayOfWeek : function(y,m,d)
-    {
+    dayOfWeek : function(year,month,day)
+    { 
+        var y=parseInt(year);
+        var m=parseInt(month);
+        var d=parseInt(day);
+        
         var y0=y-Math.floor((14-m)/12);
         var x=y0+Math.floor(y0/4)-Math.floor(y0/100)+Math.floor(y0/400);
         var m0=m+12*Math.floor((14-m)/12)-2;
         var d0=(d+x+Math.floor(31*m0/12))%7;
-       /**
-        * @description by using formula it finds the day number(d0)
-        */
-        switch(d0)
-        {
+        d0=parseInt(d0);
+
+        switch (d0) {
             case 0:
-                console.log("SUNDAY"); break;
+                console.log("Sunday");
+                break;
             case 1:
-                console.log("MONDAY"); break;
+                console.log("Monday");
+                break;
             case 2:
-                console.log("TUESDAY"); break;
+                console.log("Tuesday");
+                break;
             case 3:
-                console.log("WEDNESDAY"); break;
+                console.log("Wednesday");
+                break;
             case 4:
-                console.log("THURSDAY"); break;
+                console.log("Thursday");
+                break;
             case 5:
-                console.log("FRIDAY"); break;
+                console.log("Friday");
+                break;
             case 6:
-                console.log("SATURDAY"); break;
+                console.log("Saturday");
         }
+
     },
 
 

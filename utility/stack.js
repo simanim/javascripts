@@ -23,12 +23,3 @@ stack.prototype.isEmpty=function(){
 };
 
 module.exports=new stack()
-
- //var maple= new stack();
-// maple.add(20);
-// maple.add(30);
-// maple.add(40);
-// maple.remove();
-// console.log(maple.getSize());
-// console.log(maple);
-//console.log(maple.isEmpty());
