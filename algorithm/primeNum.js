@@ -13,10 +13,29 @@
  *  @since          : 31-08-2018
  *
  ******************************************************************************/
+var readline=require('readline');
 var utility=require('../utility/algorithmUtility.js');
+var read=readline.createInterface(
+    {
+        input:process.stdin,
+        output:process.stdout
+    }
+);
 function primeNum()
 {
-    var primeArray=utility.primeNum(1,1000);
-    console.log("Prime numbers between 0 and 1000 are :"+primeArray);
+    read.question("enter the min value between 1 to 1000: ", function(min)
+    {
+        read.question("enter the max value between 1 to 1000: ", function(max)
+        {
+            if(min==0)min=1;
+            min=parseInt(min);
+            max=parseInt(max);if(min==0)min=1;
+            if(isNaN(min)||(min=="")||isNaN(max)||(max=="")||min>=max||min<1||max>1000)
+                console.log("invalid input");
+            else
+                console.log("Prime numbers are :"+utility.primeNum(min,max));
+            read.close();
+        });
+    });
 }
 primeNum();

@@ -11,7 +11,7 @@
  *  @module         : distance - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
- *  @since          : 26-08-2018
+ *  @since          : 27-08-2018
  *
  ******************************************************************************/
 var readline=require('readline');

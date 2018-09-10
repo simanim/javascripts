@@ -25,7 +25,10 @@ function parentheses()
 {
     read.question("enter the expression: ",function(exp)
     {
-        utility.parentheses(exp);
+        if(exp=="")
+            console.log("invalid");
+        else
+            utility.parentheses(exp);
         read.close();
     });       
 }

@@ -1,14 +1,14 @@
 /******************************************************************************
- *  Execution       :   default node         cmd> node AnagPal.js 
+ *  Execution       :   default node         cmd> node anagPal.js 
  *                      
  *  Purpose         :   Printing prime numbers that are Anagram and Palindrome
  * 
  *  @description    
  * 
- *  @file           : AnagPal.js
- *  @overview       : AnagPal module prints all the prime numbers which are anagram and palindrome
+ *  @file           : anagPal.js
+ *  @overview       : anagPal module prints all the prime numbers which are anagram and palindrome
  *                    between 0 t0 1000.
- *  @module         : AnagPal - 
+ *  @module         : anagPal - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
  *  @since          : 31-08-2018
@@ -22,9 +22,9 @@ var read=readline.createInterface(
         output:process.stdout
     }
 );
-function AnagPal()
+function anagPal()
 {
-    utility.AnagPal(1,1000);
+    utility.anagPal(1,1000);
     read.close();
 }
-AnagPal();
+anagPal();
