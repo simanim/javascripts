@@ -31,9 +31,14 @@ function anagramArray()
             if(isNaN(min)||(min=="")||isNaN(max)||(max=="")||min<0||max>1000)
                 console.log("invalid input");
             else{
-                if(min==0)
-                    min=1;
-                utility.anagramArray(min,max);
+                try{
+                    if(min==0)   min=1;
+                    utility.anagramArray(min,max);
+                }
+                catch(err) {
+                    console.log("error");
+                }
+
             }
             read.close();
         });

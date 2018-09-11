@@ -14,14 +14,9 @@
  *  @since          : 05-09-2018
  *
  **********************************************************/
-var readline=require('readline');
+var readlineSync=require('readline-sync');
 var utility=require('../utility/dsUtility.js');
-var read=readline.createInterface(
-    {
-        input:process.stdin,
-        output:process.stdout
-    }
-);
+
 function hashing()
 {
     var fs = require("fs");
@@ -33,16 +28,16 @@ function hashing()
     {
         console.log("Error:", e.stack);
     }
-    read.question("enter the number, you want to search: ",function(number)
-    {
-        if(isNaN(number)||number=="")
+    var size=readlineSync.question("enter the size of array: ");
+    var num=readlineSync.question("enter the number you want to search: ");
+    var number=parseInt(num);
+        if(isNaN(size)||size==""||isNaN(number)||number=="")
             console.log("invalid number");
         else
         {
-            var output=utility.hashing(data,number);
-            fs.writeFileSync("hashingFile.txt",output);
+            var dataArray=data.split(" ");
+            var output=utility.hashing(dataArray,size,number);
+            //fs.writeFileSync("hashingFile.txt",output);
         }
-        read.close();
-    });
 }
 hashing();
