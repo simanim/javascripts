@@ -596,139 +596,45 @@ module.exports={
  * @function hashing it takes input from file and word to search
  * @return add the number to file, if not present. remove ,if present.
  */
-    hashing : function(data,number)
-    {
-        
-        var array=data.split(" ");
+    hashing : function(data,size,number)
+    { 
         var remArray=[];
-        for(var n=0;n<array.length;n++)
+        for(var d=0;d<data.length;d++)
         {
-            linkedList.append(array[n]);
-            remArray[n]=(array[n])%11;
-       /**
-        * @description it adds the numbers in linked list and by dividing the numbers by 11,it stores
-        *              remainder in an array
-        */
+            remArray.push(parseInt(data[d])%size);
         }
-        console.log("list: "+linkedList.print());
-        var arr0=[],arr1=[],arr2=[],arr3=[],arr4=[],arr5=[],arr6=[],arr7=[],arr8=[],arr9=[],arr10=[];
-        for(var i=0;i<array.length;i++)
+        var mainArray=new Array();
+        for(var i=0;i<size;i++)
         {
-            if(remArray[i]==0) arr0.push(array[i]);
-            if(remArray[i]==1) arr1.push(array[i]);
-            if(remArray[i]==2) arr2.push(array[i]);
-            if(remArray[i]==3) arr3.push(array[i]);
-            if(remArray[i]==4) arr4.push(array[i]);
-            if(remArray[i]==5) arr5.push(array[i]);
-            if(remArray[i]==6) arr6.push(array[i]);
-            if(remArray[i]==7) arr7.push(array[i]);
-            if(remArray[i]==8) arr8.push(array[i]);
-            if(remArray[i]==9) arr9.push(array[i]);
-            if(remArray[i]==10) arr10.push(array[i]);
-       /**
-        * @description it takes 11 array to stores the numbers separately according to remainder
-        */
-        }
-        console.log("0: "+arr0+"\n1: "+arr1+"\n2: "+arr2+"\n3: "+arr3+"\n4: "+arr4+"\n5: "+arr5+"\n6: "+
-                         arr6+"\n7: "+arr7+"\n8: "+arr8+"\n9: "+arr9+"\n10: "+arr10+"\n");
-        var rem=number%11, flag=false;
-        if(rem==0){
-            flag=false;
-            for(var i=0;i<arr0.length;i++){
-                if(number==arr0[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
+            //var subArray=new Array();
+           // subArray.push(i+" : ");
+            for(var j=0;j<remArray.length;j++)
+            {
+                if(remArray[j]==i){
+                    linkedList.append(data[j]);
                 }
             }
+            mainArray.push(linkedList);
+            
         }
-        else if(rem==1){
-            for(var i=0;i<arr1.length;i++){
-                if(number==arr1[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==2){
-            for(var i=0;i<arr2.length;i++){
-                if(number==arr2[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==3){
-            for(var i=0;i<arr3.length;i++){
-                if(number==arr3[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==4){
-            for(var i=0;i<arr4.length;i++){
-                if(number==arr4[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==5){
-            for(var i=0;i<arr5.length;i++){
-                if(number==arr5[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==6){
-            for(var i=0;i<arr6.length;i++){
-                if(number==arr6[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==7){
-            for(var i=0;i<arr7.length;i++){
-                if(number==arr7[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==8){
-            for(var i=0;i<arr8.length;i++){
-                if(number==arr8[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else if(rem==9){
-            for(var i=0;i<arr9.length;i++){
-                if(number==arr9[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        else{
-            for(var i=0;i<arr10.length;i++){
-                if(number==arr10[i]){
-                    linkedList.remove(number);console.log("value found!! \n deleted");
-                    flag=true;
-                }
-            }
-        }
-        if(flag==false){
-            linkedList.append(number);console.log("value not found!! \n added");
-        }
-       /**
-        * @description if the number is not found, then it will be added otherwise, removed.
-        */
+        console.log(mainArray);
+        //return (mainArray);
+    },
 
-        console.log("list: "+linkedList.print());
-        return linkedList.print();
+
+    binaryTree : function(node)
+    {
+        for(var subNode=1;subNode<=node;subNode++)
+        {
+            var cons=parseInt(subNode)*2;
+            var result = 1; 
+            for (var i = 0; i < subNode; ++i) 
+            { 
+                result *= (cons - i); 
+                result /= (i + 1); 
+            }
+            var catalan=result/(parseInt(subNode)+1);
+            console.log(catalan);
+        }
     }
 }

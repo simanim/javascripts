@@ -108,4 +108,4 @@ linkedList.prototype.getIndex=function(value){
     }
 };
 
-module.exports=new linkedList();
+//module.exports=new linkedList();

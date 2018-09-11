@@ -31,10 +31,17 @@ function dayOfWeek()
         }
         else day=28;
     }
+<<<<<<< HEAD
     else if(array[1]==4||array[1]==6||array[1]==9||array[1]==11)
     {
        day=30;
     }
+=======
+   else if(array[1]==4||array[1]==6||array[1]==9||array[1]==11)
+   {
+       day=30;
+   }
+>>>>>>> d1d46546f329df9db3f9c76df25ee1917336220e
     if(isNaN(array[0])||isNaN(array[1])||isNaN(array[2])||(array[0]=="")||(array[1]=="")||(array[2]=="")||
         (array[0]<0)||(array[1]>12)||(array[1]<0)||(array[2]>day)||(array[2]<0))
         console.log("invalid inputs");
