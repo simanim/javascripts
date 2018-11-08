@@ -28,16 +28,15 @@ function hashing()
     {
         console.log("Error:", e.stack);
     }
-    var size=readlineSync.question("enter the size of array: ");
-    var num=readlineSync.question("enter the number you want to search: ");
-    var number=parseInt(num);
-        if(isNaN(size)||size==""||isNaN(number)||number=="")
-            console.log("invalid number");
-        else
-        {
-            var dataArray=data.split(" ");
-            var output=utility.hashing(dataArray,size,number);
-            //fs.writeFileSync("hashingFile.txt",output);
-        }
+    var size=parseInt(readlineSync.question("enter the size of array: "));
+    if(isNaN(size)||size=="")
+        return console.log("invalid number");
+    var number=parseInt(readlineSync.question("enter the number you want to search: "));
+        if(isNaN(number)||number=="")
+        return console.log("invalid number");
+    
+    var dataArray=data.split(" ");
+    var output=utility.hashing(dataArray,size,number);
+    fs.writeFileSync("hashingFile.txt",output);
 }
 hashing();

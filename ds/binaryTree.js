@@ -1,41 +1,34 @@
 /******************************************************************************
  *  Execution       :   default node         cmd> node binaryTree.js 
  *                      
- *  Purpose         :   
+ *  Purpose         :   Printing number of binary search tree
  *  @description    
  * 
  *  @file           : binaryTree.js
- *  @overview       : binaryTree module takes 
+ *  @overview       : binaryTree module takes nodes as input and prints the number of binary tree
  *  @module         : binaryTree - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
  *  @version        : v4.2.6
  *  @since          : 11-09-2018
  *
  **********************************************************/
-var readline=require('readline');
+var readlineSync=require('readline-sync');
 var utility=require('../utility/dsUtility.js');
-var read=readline.createInterface(
-    {
-        input:process.stdin,
-        output:process.stdout
-    }
-);
 function binaryTree()
 {
-    read.question("enter the number of node in the tree: ", function(node)
+    var numbers=readlineSync.question("enter the nodes of the tree -->");
+    var numberArray=numbers.split(" ");
+    for(var i=0;i<numberArray.length;i++)
     {
-        if(isNaN(node)){
-            console.log("please enter a valid number");
-        }
-        else{
-            try {
-                utility.binaryTree(node)
-            }
-            catch(err) {
-                console.log("error");
-            }
-        }
-        read.close();
-    });
+        if(isNaN(numberArray[i])||numberArray[i]=="")
+            return console.log("invalid input");
+    }
+    try {
+        utility.binaryTree(numberArray.length);
+    }
+    catch(err) {
+        console.log("error");
+    }
+        
 }
 binaryTree();

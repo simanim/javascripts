@@ -27,7 +27,7 @@ function primeArray()
     {
         read.question("enter the maximum value : ",function(max)
         {
-            if(isNaN(min)||(min=="")||isNaN(max)||(max=="")||min<0||max>1000)
+            if(isNaN(min)||(min=="")||isNaN(max)||(max=="")||min<0||max>1000||min>max)
                 console.log("invalid input");
             else{
                 if(min==0)

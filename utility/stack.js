@@ -22,4 +22,4 @@ stack.prototype.isEmpty=function(){
     return (this.storage==null);
 };
 
-module.exports=new stack()
+module.exports= stack

@@ -1,0 +1,37 @@
+{ 
+    "person" :
+    [
+        {
+            "firstName":"anjali",
+            "lastName":"sharma",
+            "city":"mumbai",
+            "state":"maharashtra",
+            "zip":400001,
+            "phoneNo":9823467190
+        },
+        {
+            "firstName":"abhishek",
+            "lastName":"das",
+            "city":"bhubaneswar",
+            "state":"odisha",
+            "zip":751030,
+            "phoneNo":9778456100
+        },
+        {
+            "firstName":"ankita",
+            "lastName":"acharya",
+            "city":"bangalore",
+            "state":"karnataka",
+            "zip":530068,
+            "phoneNo":7892664417
+        },
+        {
+            "firstName":"arush",
+            "lastName":"joshi",
+            "city":"kolkata",
+            "state":"west bengal",
+            "zip":700028,
+            "phoneNo":8295660012
+        }
+    ]
+}

@@ -1,1 +1,32 @@
-[{ "name": "rice", "weight": 10, "price": 30 },{ "name": "pulses", "weight": 12, "price": 60 },{ "name": "wheats", "weight": 20, "price": 40 }]
+{
+    "rice": [{ 
+                "name"  : "indianRice", 
+                "weight": 60, 
+                "price" : 50 
+            },
+            {
+                "name"  : "basmatiRice", 
+                "weight": 30, 
+                "price" : 120 
+            }],
+    "wheat":[{ 
+                "name": "aashirvad", 
+                "weight": 12, 
+                "price": 60 
+            },
+            {
+                "name": "pilsbury", 
+                "weight": 50, 
+                "price": 60
+            }],
+    "pulses":[{ 
+                "name": "greengram", 
+                "weight": 60, 
+                "price": 100 
+            },
+            {
+                "name": "redgram", 
+                "weight": 20, 
+                "price": 80 
+            }]
+}

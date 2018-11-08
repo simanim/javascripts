@@ -10,8 +10,8 @@
  *                    in queue format
  *  @module         : anagramQueue - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
- *  @version        : v4.2.6
- *  @since          : 08-09-2018
+ *  @version        : v10.10.0
+ *  @since          : 12-09-2018
  *
  ******************************************************************************/
 var readline=require('readline');

@@ -1,0 +1,25 @@
+{ 
+    "stock" :
+    [
+        {
+            "companyname":"infosys",
+            "Share":140,
+            "SharePrice":1500
+        },
+        {
+            "companyname":"tata",
+            "Share":200,
+            "SharePrice":1000
+        },
+        {
+            "companyname":"tcs",
+            "Share":400,
+            "SharePrice":2000
+        },
+        {
+            "companyname":"wipro",
+            "Share":200,
+            "SharePrice":5000
+        }
+    ]
+}

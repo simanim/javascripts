@@ -11,7 +11,7 @@
  *                    first name, fullName as users full name, contact number and date of joining
  *  @module         : demonstration - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
- *  @version        : v4.2.6
+ *  @version        : v10.10.0
  *  @since          : 11-09-2018
  *
  **********************************************************/
@@ -23,7 +23,6 @@ function demonstration()
     var firstName=readlineSync.question("enter your first name: ");
     var fullName=readlineSync.question("enter your full name: ");
     var contactNo=readlineSync.question("enter your contact number: ");
-    var date=readlineSync.question("enter your date of joining in dd/mm/yyyy format: ");
     var fs = require("fs");
     try 
     {
@@ -34,7 +33,7 @@ function demonstration()
         console.log("Error:", e.stack);
     }
     
-    utility.demonstration(data,firstName,fullName,contactNo,date);
+    utility.demonstration(data,firstName,fullName,contactNo);
     
 }
 demonstration();

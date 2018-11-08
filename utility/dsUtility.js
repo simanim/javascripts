@@ -1,7 +1,9 @@
-var linkedList=require('./linkedList.js');
+var linkedList=require('./linkedList.js'); 
 var stack=require('./stack.js');
 var queue=require('./queue.js');
-var deque=require('./deque.js');
+var deque=require('./deque.js'); 
+var queueLink=require('./queLink.js'); var queueLink=new queueLink();
+var listClass=require('./listClass.js');var list = new listClass();
 module.exports={
 
 /**
@@ -12,18 +14,19 @@ module.exports={
  */
     unOrdered : function(data,word)
     {
+        var list=new linkedList();
         var array=data.split(" ");
         for(var i=0;i<array.length;i++)
         {
-            linkedList.append(array[i]);
+            list.append(array[i]);
        /**
         * @description the text file is splitted and stored in linkedlist
         */
         }
-        if(linkedList.contains(word)==true)
+        if(list.contains(word)==true)
         {
             console.log("\nelement found!!!\nElement Deleted\n");
-            linkedList.remove(word);
+            list.remove(word);
        /**
         * @description if the given word is present in list, then it will be removed from linked list
         */
@@ -31,7 +34,7 @@ module.exports={
         else
         {
             console.log("\nelement not found!!!\nElement added\n");
-            linkedList.append(word);
+            list.append(word);
        /**
         * @description if the given word is not present in list, then it will be added to linked list
         */
@@ -48,81 +51,71 @@ module.exports={
  */
     ordered : function(data,number)
     {
-        var output=[];
-        var array=data.split(" ");
-        for(var n=0;n<array.length;n++)
+        for (var i = 0; i < (data.length); i++) 
         {
-            array[n]=parseInt(array[n]);
-       /**
-        * @description the text file is splitted and stored in an array
-        */
+            list.add(data[i]);
+           /**
+            * @description adding data to list
+            */
         }
-        array.sort(function(a,b){
-            return a-b;
-        });
-        for(var i=0;i<array.length;i++)
-        {
-            linkedList.append(array[i]);
+    console.log("\nascending order of list: ");
+    var string = list.printList1();
+   /**
+    * @description ascending order representation of list
+    */
+    console.log(string);
+    if (list.indexOf(number) == -1) 
+    {
+        list.insertSort(parseInt(number));
        /**
-        * @description numbers are sorted and stored in linked list
+        * @description inserts an element at appropriate position,if not present
         */
-        }
-        if(linkedList.contains(number)==true)
-        {
-            console.log("\nelement found!!!\nElement Deleted\n");
-            linkedList.remove(number);
+       console.log("\nelement not found!!  adding..\n new list");
+    }
+    else 
+    {
+        list.removeElement(number);    
        /**
-        * @description if the given number is present in list, then it will be removed from linked list
+        * @description removes an element from list, if present
         */
-        }
-        else
-        {
-            console.log("\nelement not found!!!\nElement added\n");
-            linkedList.append(number);
-       /**
-        * @description if the given number is not present in list, then it will be added to linked list
-        */
-        }
-        output= linkedList.print();
-        var o=output.split(" ");
-        o.sort(function(a,b){
-            return a-b;
-        });
-        var i=o.join(" ");   
-       /**
-        * @description if the given word is not present in list, then it will be added to linked list
-        */
-        return i;
+       console.log("\nelement found!!  removing..\n new list");
+    }
+    string = list.printList1();
+   /**
+    * @description again arranging the list
+    */
+    console.log(string);   
+    return string;  
     },
 
 
 /**
- * @description program to reading a list of number from a file arranging in ascending order in a 
- *              linkedlist and by taking a number input from user, adding or removing from list.
- * @function ordered it takes a list of number from file and a number from user to search
- * @return {array of number}  if the number is present, it removes,otherwise it addes to file and saves.
+ * @description program to check the given arithmatic expression is balanced or not
+ * @function parentheses it takes a arithmatic expression as input
+ * @return {}  it returns the expression is balanced or not
  */
     parentheses : function(exp)
     {
+        var stack1=new stack();
         var expArray=exp.split("");
         for(var i=0;i<expArray.length;i++)
         {
             if(expArray[i]=="("||expArray[i]=="{"||expArray[i]=="[")
-                stack.add(expArray[i]);
+                stack1.add(expArray[i]);
            /**
             * @description open parenthesis adds to stack
             */
 
             else if(expArray[i]==")"||expArray[i]=="}"||expArray[i]=="]"){
-                if(stack.getSize()==0)
+                if(stack1.getSize()==0)
                 return (console.log("not balanced"));
-                stack.remove();
+                stack1.remove();
            /**
             * @description close parenthesis pops the stack
             */
             }
         }
-        if(stack.getSize()==0)
+        if(stack1.getSize()==0)
             console.log("balanced");
         else
             console.log("not balanced");
@@ -432,7 +425,6 @@ module.exports={
        /**
         * @description it prints the array in 2d format by converting the row as strings
         */
-
     },
 
 
@@ -552,6 +544,7 @@ module.exports={
  */
     anagramStack : function(min,max)
     {
+        var stack1=new stack();
         var primeArray=this.prime(min,max);
         var anagramArray=this.anagram(primeArray);
        /**
@@ -559,12 +552,12 @@ module.exports={
         */
         for(var i=anagramArray.length;i>0;i--)
         {
-            stack.add(anagramArray[i-1]);
+            stack1.add(anagramArray[i-1]);
        /**
         * @description it adds the numbers in stack
         */
         }
-        console.log(stack);
+        console.log(stack1);
     },
 
 
@@ -582,12 +575,12 @@ module.exports={
         */
         for(var i=0;i<anagramArray.length;i++)
         {
-            queue.enqueue(anagramArray[i]);
+            queueLink.enqueue(anagramArray[i]);
        /**
         * @description it adds the numbers in queue
         */
         }
-        queue.print();
+        console.log(queueLink.printQueue());
     },
 
 
@@ -603,38 +596,272 @@ module.exports={
         {
             remArray.push(parseInt(data[d])%size);
         }
-        var mainArray=new Array();
+        var mainArray=[];
         for(var i=0;i<size;i++)
-        {
-            //var subArray=new Array();
-           // subArray.push(i+" : ");
+        { 
+            var list=new linkedList();
             for(var j=0;j<remArray.length;j++)
             {
-                if(remArray[j]==i){
-                    linkedList.append(data[j]);
-                }
+                if(remArray[j]==i)
+                list.append(data[j]);
             }
-            mainArray.push(linkedList);
-            
+            mainArray.push(list.print());
         }
-        console.log(mainArray);
-        //return (mainArray);
+        for(var i=0;i<mainArray.length;i++)
+        {
+            console.log(i+" --> "+mainArray[i]);
+        }
+        var list2=new linkedList();
+        for(var j=0;j<data.length;j++){
+            list2.append(data[j]);
+        }
+        var flag=false;
+        for(var j=0;j<data.length;j++)
+        {
+            if(data[j]==number){
+                flag=true;
+                console.log("found\ndeleted!!");
+                list2.remove(number);
+            }
+        }
+        if(flag==false){
+            console.log("not found\nadded!!");
+            list2.append(number);
+        }
+
+        array1=list2.print().split(" ");
+        var remArray2=[],mainArray2=[];
+        for(var d=0;d<array1.length;d++)
+        {
+            remArray2.push(array1[d]%size);
+        }
+        for(var i=0;i<size;i++)
+        { 
+            var list3=new linkedList();
+            for(var j=0;j<remArray2.length;j++)
+            {
+                if(remArray2[j]==i)
+                list3.append(array1[j]);
+            }
+            mainArray2.push(i+"->"+list3.print()+"\n");
+        }
+        //console.log(mainArray2);
+        return mainArray2;
+        
     },
 
 
+/**
+ * @description Printing number of binary search tree
+ * @function binaryTree it takes nodes from users
+ * @return the number of binary search tree in that nodes
+ */
     binaryTree : function(node)
     {
         for(var subNode=1;subNode<=node;subNode++)
         {
+           /**
+            * @description it prints for each number 
+            */
             var cons=parseInt(subNode)*2;
             var result = 1; 
             for (var i = 0; i < subNode; ++i) 
             { 
                 result *= (cons - i); 
                 result /= (i + 1); 
+               /**
+                * @description it calculates number of tree for the given nodes
+                */
             }
             var catalan=result/(parseInt(subNode)+1);
             console.log(catalan);
         }
+    },
+
+
+/**
+ * @description Printing the calenders in in queue by taking year and month as input
+ * @function calenderQueue it takes year and month
+ * @return prints the calender in queue
+ */  
+    calenderQueue : function(year,month)
+    {
+        var day=31;
+        if(month==2)
+        {
+            if(((year%4==0)&&(year%100!=0))||(year%400==0))
+            {
+                day=29;
+            }
+            else 
+                day=28;
+           /**
+            * @description if the month is 2,it checks leapyear or not
+            */
+        }
+        else if(month==4||month==6||month==9||month==11)
+        {
+            day=30;
+           /**
+            * @description if month is 4,6,9,11 then 30 days in that month
+            */
+        }
+
+        var y=parseInt(year);
+        var m=parseInt(month);
+        var d=1;
+        var y0=y-Math.floor((14-m)/12);
+        var x=y0+Math.floor(y0/4)-Math.floor(y0/100)+Math.floor(y0/400);
+        var m0=m+12*Math.floor((14-m)/12)-2;
+        var d0=(d+x+Math.floor(31*m0/12))%7;
+        d0=parseInt(d0);
+        /**
+        * @description it checks the day of week in the given year on starting day of month
+        */
+
+       console.log("sun  mon  tue  wed  thu  fri  sat");
+       arr1=[];
+        var date=1;
+        for(var i=0;i<d0;i++)
+        {
+            arr1[i]="     ";
+       /**
+        * @description it adds space to array if the calender does not start with sunday upto that day
+        */
+        }
+        while(date<=day)
+        {
+            if(date<10)
+            arr1.push(" "+date+"   ");
+            else
+            arr1.push(date+"   ");
+            date++;
+       /**
+        * @description it adds date to calender according to day name
+        */
+        }
+        var remain=42-d0-day;
+        for(var i=0;i<remain;i++)
+        {
+            arr1.push("   ");
+       /**
+        * @description it adds space after adding date to calender.other wise it will show undefined instead
+        */
+        }
+        var pos=0;
+        for(var i=0;i<6;i++)
+        {
+            var str="";
+            for(var j=0;j<7;j++)
+            {
+                str=str+arr1[pos];
+                pos++;
+            }
+            queue.enqueue(str);
+       /**
+        * @description the dates are added to the queue
+        */
+        }
+        for(var k=0;k<6;k++)
+        {
+            console.log(queue.frontEle());
+           /**
+            * @description printing the queue
+            */
+            queue.dequeue();
+        }
+    },
+
+
+/**
+ * @description Printing the calenders in in stack by taking year and month as input
+ * @function calenderStack it takes year and month
+ * @return prints the calender in stack
+ */  
+    calenderStack : function(year,month)
+    { var stack1=new stack();
+        var day=31;
+        if(month==2)
+        {
+            if(((year%4==0)&&(year%100!=0))||(year%400==0))
+            {
+                day=29;
+            }
+            else 
+                day=28;
+           /**
+            * @description if the month is 2,it checks leapyear or not
+            */
+        }
+        else if(month==4||month==6||month==9||month==11)
+        {
+            day=30;
+           /**
+            * @description if month is 4,6,9,11 then 30 days in that month
+            */
+        }
+
+        var y=parseInt(year);
+        var m=parseInt(month);
+        var d=1;
+        var y0=y-Math.floor((14-m)/12);
+        var x=y0+Math.floor(y0/4)-Math.floor(y0/100)+Math.floor(y0/400);
+        var m0=m+12*Math.floor((14-m)/12)-2;
+        var d0=(d+x+Math.floor(31*m0/12))%7;
+        d0=parseInt(d0);
+       /**
+        * @description it checks the day of week in the given year on starting day of month
+        */
+
+        console.log("sun  mon  tue  wed  thu  fri  sat");
+        var date=1;
+        for(var i=0;i<d0;i++)
+        {
+            deque.addRear("     ");
+       /**
+        * @description it adds space to array if the calender does not start with sunday upto that day
+        */
+        }
+        while(date<=day)
+        {
+            if(date<10)
+            deque.addRear(" "+date+"   ");
+            else
+            deque.addRear(date+"   ");
+            date++;
+       /**
+        * @description it adds date to calender according to day name
+        */
+        }
+        var remain=42-d0-day;
+        for(var i=0;i<remain;i++)
+        {
+            deque.addRear("   ");
+       /**
+        * @description it adds space after adding date to calender.other wise it will show undefined instead
+        */
+        }
+        for(var i=0;i<6;i++)
+        {
+            var str="";
+            for(var j=0;j<7;j++)
+            {
+                str=str+deque.removeFront();
+            }
+            stack1.add(str);
+       /**
+        * @description the dates are added to the queue
+        */
+        }
+        var stack2=new stack();
+        for(var i=0;i<stack1.getSize();)
+        {
+            stack2.add(stack1.remove());
+        }
+        for(var i=0;i<stack2.getSize();)
+        {
+            console.log(stack2.remove());
+        }
     }
+    
 }

@@ -77,6 +77,7 @@ linkedList.prototype.remove=function(value){
     }
     prev.next=current.next;
 };
+  
 
 linkedList.prototype.print=function(){
     var output="";
@@ -107,5 +108,24 @@ linkedList.prototype.getIndex=function(value){
         index++;
     }
 };
+linkedList.prototype.popBack=function(){
+    var current = this.head,
+        previous=null;
+    while (current.next!=null) {
+        previous = current;
+        current = current.next;
+    }
+    previous.next = null;
+};
+linkedList.prototype.removeHead=function()
+    {
+        if (this.getSize() == 0) {
+        return undefined;
+    }
+        
+    const value = this.head.value;
+    this.head = this.head.next;
+    this.getSize()--;
+    }
 
-//module.exports=new linkedList();
+module.exports=linkedList;

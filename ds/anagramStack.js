@@ -10,7 +10,7 @@
  *                    in stack format
  *  @module         : anagramStack - 
  *  @author         : Simani Meher <simanimeher@gmail.com>
- *  @version        : v4.2.6
+ *  @version        : v10.10.0
  *  @since          : 08-09-2018
  *
  ******************************************************************************/

@@ -24,27 +24,33 @@ var read=readline.createInterface(
         output:process.stdout
     }
 );
+var fs = require("fs");
+try 
+{
+    var data = fs.readFileSync("orderedFile.txt", "utf8");
+}
+catch(e)
+{
+    console.log("Error:", e.stack);
+}
+console.log(data);
+data = data.toString().split(' ');
+data.sort(function (a, b) {
+    return a - b;
+});
 function ordered()
 {
-    var fs = require("fs");
-    try 
+    read.question('Enter the element to search: ', function (number)
     {
-        var data = fs.readFileSync("orderedFile.txt", "utf8");
-    }
-    catch(e)
-    {
-        console.log("Error:", e.stack);
-    }
-    read.question("enter the number, you want to search: ",function(number)
-    {
-        if(isNaN(number)||number=="")
-            console.log("invalid");
-        else
+        if(isNaN(number)||number=="") 
         {
-            var output=utility.ordered(data,number);
-            fs.writeFileSync("orderedFile.txt",output);
+            console.log("Please enter a valid input");
+            return;
         }
+        string=utility.ordered(data,number);
+        fs.writeFileSync('/home/bridgeit/myJavascripts/ds/orderedFile.txt', string);
         read.close();
+
     });
 }
 ordered();

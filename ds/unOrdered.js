@@ -39,9 +39,7 @@ function unOrdered()
     }
     read.question("enter the word, you want to search: ",function(word)
     {
-        if(word=="")
-            console.log("invalid");
-        else
+        if(word!=""||isNaN(word))
         {
             var output=utility.unOrdered(data,word.toLowerCase());
             fs.writeFileSync("unOrderedFile.txt",output);
@@ -49,6 +47,8 @@ function unOrdered()
             * @description the changed text is saved to the file.
             */
         }
+        else
+            console.log("invalid");
         read.close();
     });
 }

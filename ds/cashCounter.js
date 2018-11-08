@@ -19,6 +19,8 @@ var utility=require('../utility/dsUtility.js');
 function cashCounter()
 {
     var people=readlineSync.question("enter number of people standing in the queue: ");
+    if(people==""||isNaN(people)||people<1)
+        return console.log("invalid");
     utility.cashCounter(readlineSync,people);
 }
 cashCounter();
